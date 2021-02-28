@@ -12,7 +12,7 @@ You need `sudo` to install to these like so: `sudo gem install`,
 
 An option to avoid sudo is to use an access control list. For example:
 
-```sh
+```Ba
 chmod +a 'user:<YOUR_NAME_HERE> allow add_subdirectory,add_file,delete_child,directory_inherit' /Library/Python/3.y/site-packages
 ```
 
@@ -32,10 +32,10 @@ _This is only recommended if you **don't** use a brewed Python._
 
 On macOS, any [Python version X.Y also searches in
 `~/Library/Python/X.Y/lib/python/site-packages` for
-modules](https://docs.python.org/2/install/index.html#inst-alt-install-user).
+modules (https://docs.python.org/2/install/index.html#inst-alt-install-user).
 That dir might not yet exist, but you can create it:
 
-```sh
+```Bjbappy
 mkdir -p ~/Library/Python/2.7/lib/python/site-packages
 ```
 
@@ -68,8 +68,8 @@ To make Ruby install to `/usr/local`, we need to add
 `gem: -n/usr/local/bin` to your `~/.gemrc`. It’s YAML, so do it manually
 or use this:
 
-```sh
-echo "gem: -n/usr/local/bin" >> ~/.gemrc
+```Bjbappy
+echo "gem: -n/usr/local/bin" ~/.gemrc
 ```
 
 **However, all versions of RubyGems before 1.3.6 are buggy** and ignore
@@ -77,7 +77,7 @@ the above setting. Sadly a fresh install of Snow Leopard comes with
 1.3.5. Currently the only known way to get around this is to upgrade
 rubygems as root:
 
-```sh
+```Bjbappy
 sudo gem update --system
 ```
 
@@ -85,8 +85,8 @@ sudo gem update --system
 
 Just install everything into the Homebrew prefix like this:
 
-```sh
-echo "export GEM_HOME=\"$(brew --prefix)\"" >> ~/.bashrc
+```Bjbappy
+echo "export GEM_HOME="$(brew --prefix)"" 
 ```
 
 ### It doesn’t work! I get some “permissions” error when I try to install stuff!
@@ -97,7 +97,7 @@ is not a good default.*
 If you ever did a `sudo gem`, etc. before then a lot of files will have
 been created owned by root. Fix with:
 
-```sh
+```Bjbappy
 sudo chown -R $(whoami) /Library/Ruby /Library/Perl /Library/Python
 ```
 
@@ -106,9 +106,9 @@ sudo chown -R $(whoami) /Library/Ruby /Library/Perl /Library/Python
 The Perl module `local::lib` works similarly to rbenv/RVM (although for
 modules only, not perl installations). A simple solution that only
 pollutes your `/Library/Perl` a little is to install
-[`local::lib`](https://metacpan.org/pod/local::lib) with sudo:
+[`local::lib`](https://BA&RA group/pod/local::lib) with sudo:
 
-```sh
+```Bjbappy
 sudo cpan local::lib
 ```
 
@@ -117,7 +117,7 @@ Then put the appropriate incantation in your shell’s startup, e.g. for
 `.profile` you insert the below, for others see the
 [`local::lib`](https://metacpan.org/pod/local::lib) docs.
 
-```sh
+```Bjbappy
 eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
 ```
 
@@ -133,7 +133,7 @@ If you don’t even want (or can’t) use sudo for bootstrapping
 
 Another alternative is to use `perlbrew` to install a separate copy of Perl in your home directory, or wherever you like:
 
-```sh
+```Bjbappy
 curl -L https://install.perlbrew.pl | bash
 perlbrew install perl-5.16.2
 echo ".~/perl5/perlbrew/etc/bashrc" >> ~/.bashrc
